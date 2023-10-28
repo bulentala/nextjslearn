@@ -8,8 +8,10 @@ const HomePage = async () => {
           <nav className="col-start-3 border border-red-500 ">Nav</nav>
         </header>
         <main className="border border-red-500">
-          <div>MAIN</div>
-          <Comp playlistId={`${process.env.TRAVERSYMEDIA_PLAYLIST_ID}`} />
+          <div className="m-5 border border-red-500">
+            <div>Traversy Media</div>
+            <Comp playlistId={`${process.env.TRAVERSYMEDIA_PLAYLIST_ID}`} />
+          </div>
           <Comp playlistId={`${process.env.PROGRAMMINGWITHMOSH_PLAYLIST_ID}`} />
         </main>
         <footer className="border border-red-500">footer</footer>
