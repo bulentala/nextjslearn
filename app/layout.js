@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <container className='grid grid-rows-[_auto_auto_1fr_auto] min-h-screen mx-auto max-w-4xl'>
           <header className='grid grid-cols-[_auto_1fr_auto] py-6 border-b border-gray-300'>
             <Link href='/'>
-              <logo className='grid grid-cols-2 items-center'>
+              <div className='grid grid-cols-2 items-center'>
                 <div>
                   <Image
                     alt='next.js logo'
@@ -28,11 +28,11 @@ export default function RootLayout({ children }) {
                 <div className=' font-mono font-extrabold border-y-2 border-gray-900 ml-2 w-max '>
                   LEARN
                 </div>
-              </logo>
+              </div>
             </Link>
-            <navbar className=' col-start-3'>
+            <div className=' col-start-3'>
               <Link href='/about'>About</Link>
-            </navbar>
+            </div>
           </header>
           <hero className='py-20'>
             <div className='mx-auto w-max text-6xl font-mono font-bold  '>
