@@ -1,5 +1,4 @@
-import { EyeOpenIcon, HeartIcon, PersonIcon } from "@radix-ui/react-icons";
-
+import Image from "next/image";
 import moment from "moment";
 async function getPlaylistData() {
   const res = await fetch(
@@ -22,18 +21,28 @@ const HomePage = async () => {
   const videoData = await Promise.all(videoIds.map(getSingleVideoData));
   return (
     <>
+      <button>sort by date</button>
+      <button>sort by viewCount</button>
+      <button>sort by likeCount</button>
+      <button>sort by favoriteCount</button>
       {videoData.map((videos) => {
         return videos.items.map((video) => {
           return (
             <div key={video.id}>
-              {video.snippet.title}
-              {moment(video.snippet.publishedAt).format("MMM YY")}
-              <PersonIcon />
-              {video.snippet.channelTitle}
-              <EyeOpenIcon />
-              {video.statistics.viewCount}
-              <HeartIcon />
-              {video.statistics.likeCount}
+              <div>{video.snippet.title}</div>
+              <div>{moment(video.snippet.publishedAt).format("MMM YY")};</div>
+              <Image
+                alt=''
+                src={video.snippet.thumbnails.default.url}
+                width='120'
+                height='90'
+                className='rounded'
+              />
+              <div>{video.snippet.channelTitle}</div>
+              <div>{video.snippet.statistics}</div>
+              <div>{video.statistics.viewCount}</div>
+              <div>{video.statistics.likeCount}</div>
+              <div>{video.statistics.favoriteCount}</div>
             </div>
           );
         });
