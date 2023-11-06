@@ -1,3 +1,4 @@
+import Comp from "./components/comp";
 import { EyeOpenIcon, HeartIcon, PersonIcon } from "@radix-ui/react-icons";
 
 import moment from "moment";
@@ -22,18 +23,32 @@ const HomePage = async () => {
   const videoData = await Promise.all(videoIds.map(getSingleVideoData));
   return (
     <>
+      {/* <Comp /> */}
       {videoData.map((videos) => {
         return videos.items.map((video) => {
           return (
             <div key={video.id}>
-              {video.snippet.title}
-              {moment(video.snippet.publishedAt).format("MMM YY")}
-              <PersonIcon />
-              {video.snippet.channelTitle}
-              <EyeOpenIcon />
-              {video.statistics.viewCount}
-              <HeartIcon />
-              {video.statistics.likeCount}
+              <div className=' grid grid-cols-[_auto_1fr_auto] mt-3'>
+                <div className=''>{video.snippet.title}</div>
+                <div className=' col-start-3'>
+                  {moment(video.snippet.publishedAt).format("MMM YY")}
+                </div>
+              </div>
+              <div className=' grid grid-cols-[_auto_auto_auto_auto_auto_auto_1fr] mt-1 text-gray-400 items-center gap-2 font-mono text-xs'>
+                <div className=''>
+                  <PersonIcon />
+                </div>
+                <div className=''>{video.snippet.channelTitle}</div>
+                <div className=''>
+                  <EyeOpenIcon />
+                </div>
+                <div className=''>{video.statistics.viewCount}</div>
+                <div className=''>
+                  <HeartIcon />
+                </div>
+                <div className=''>{video.statistics.likeCount}</div>
+                <div className=''></div>
+              </div>
             </div>
           );
         });
