@@ -1,7 +1,11 @@
 import YoutubeData from "@/components/Youtube";
+import Hero from "@/components/Hero";
 
 const HomePage = () => {
-    return (<div>HomePage
-        <div><YoutubeData/></div></div>)
+    return (        <>
+            <Hero/>
+        <YoutubeData/>
+        </>
+            )
 }
 export default HomePage
